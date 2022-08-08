@@ -1,0 +1,28 @@
+TEMA - 3 
+
+SUBPUNCTUL 1
+
+	Am aplicat algoritmul dijkstra implementat cu un heap special, care retine si pozitia ele-
+mentelor. In mod normal, map trebuie sa fie un hashmap, insa am profitat de faptul ca stiu nr
+de noduri si ca acestea sunt notate crescator de la 1 la n. De fiecare daca cand modific o dis-
+tanta, chiar daca nu o bag in heap, am grija sa fac o filtrare in sus(updatez heapul).
+	Am folosit functii auxiliare pentru constructia drumului(facut din aplicarea algoritmului de
+doua ori). Acestea inverseaza drumul, parcurg vectorul de tati etc.(trivial)
+
+SUBPUNCTUL 2
+
+	Am fortat un dfs, si am refolosit heapul implementat, chiar daca nu aveam nevoie de distan-
+te. Practic, l-am folosit ca pe o coada normala. Fac algoritmul de componente conexe cu un pas
+in plus(is_connected), adica verific si daca din nodurile din componenta sa poate ajunge la no-
+dul respectiv. Aceasta implementare garanteaza corectitudinea solutiei. Daca din sursa ajung
+in a, si din a ajung in sursa, atunci ajung din a in toate nodurile din care ajung in sursa(
+si invers).
+
+SUBPUNCTUL 3
+
+	Am schimbat matricea de distante de la algoritmul Dijkstra. Am retinut distanta unei perechi
+de tipul (nod, masca). Parcurg din toate depozitele si ma misc asemenea enuntului, iar la final
+verific minimul din nodul depozit din care am plecat, astfel incat masca sa fie ca cea calculata
+la inceput. 
+	Aceasta implementare pentru algoritm foloseste o coada normala, ce retine o pereche(pointer
+la o pereche).
