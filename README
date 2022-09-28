@@ -1,28 +1,17 @@
-TEMA - 3 
+	The program uses my implementation of Dijkstra's algorithm in C for finding the best optimal routes.
+I implemented the algorithm using a min_heap data structure. How it is used:
 
-SUBPUNCTUL 1
-
-	Am aplicat algoritmul dijkstra implementat cu un heap special, care retine si pozitia ele-
-mentelor. In mod normal, map trebuie sa fie un hashmap, insa am profitat de faptul ca stiu nr
-de noduri si ca acestea sunt notate crescator de la 1 la n. De fiecare daca cand modific o dis-
-tanta, chiar daca nu o bag in heap, am grija sa fac o filtrare in sus(updatez heapul).
-	Am folosit functii auxiliare pentru constructia drumului(facut din aplicarea algoritmului de
-doua ori). Acestea inverseaza drumul, parcurg vectorul de tati etc.(trivial)
-
-SUBPUNCTUL 2
-
-	Am fortat un dfs, si am refolosit heapul implementat, chiar daca nu aveam nevoie de distan-
-te. Practic, l-am folosit ca pe o coada normala. Fac algoritmul de componente conexe cu un pas
-in plus(is_connected), adica verific si daca din nodurile din componenta sa poate ajunge la no-
-dul respectiv. Aceasta implementare garanteaza corectitudinea solutiei. Daca din sursa ajung
-in a, si din a ajung in sursa, atunci ajung din a in toate nodurile din care ajung in sursa(
-si invers).
-
-SUBPUNCTUL 3
-
-	Am schimbat matricea de distante de la algoritmul Dijkstra. Am retinut distanta unei perechi
-de tipul (nod, masca). Parcurg din toate depozitele si ma misc asemenea enuntului, iar la final
-verific minimul din nodul depozit din care am plecat, astfel incat masca sa fie ca cea calculata
-la inceput. 
-	Aceasta implementare pentru algoritm foloseste o coada normala, ce retine o pereche(pointer
-la o pereche).
+	- it reads from stdin the input, which consists of one line with 3 numbers(vertices, edges 
+	and the number of problems the program solves); it is followed by the edges(one per line)
+	with the given weights
+	- the firt type of task is "e1" which reads a vertex from stdin, a number n and n other 
+	vertices; it outputs to stdout the shortest paths from the first vertex to the others
+	- the second type of task is "e2"; this task outputs to stdout the strongly connected 
+	components of the graph
+	- the third type of task is "e3"; its format is similar to that of "e1", but this time 
+	the program calculates the shortest route such that one can start at a given vertex, 
+	goes through all of the other n vertices, and then comes back at the starting vertex.
+	
+	For the last task I used a modified version of Dijkstra's algorithm: instead of using a
+distance vector i used a two-dimensional array, in which i had the shortest distance traveled 
+from the start to a set of vertices.
